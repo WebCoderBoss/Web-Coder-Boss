@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top nav bar</title>
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: arial;
+    }
+    .topnav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: aqua;
+      padding: 10px 20px;
+    }
+    .left, .center, .right {
+      display: flex;
+      align-items: center;
+    }
+    .logo a {
+      text-decoration: none;
+      color: black;
+      font-size: 45px;
+      font-weight: 700;
+    }
+    .btn_link {
+      padding: 14px 18px;
+      background: rgb(44, 73, 202, 0.479);
+      color: white;
+      font-size: 16px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      margin-right: 2px;
+    }
+    .radius1 {
+      border-radius: 10px 0 0 10px;
+    }
+    .radius2 {
+      border-radius: 0 10px 10px 0;
+    }
+    .split {
+      text-decoration: none;
+      padding: 17px 24px;
+      font-size: 16px;
+      background: rgb(44, 73, 202, 0.479);
+      border-radius: 20px 0 20px 10px;
+      color: white;
+    }
+    .content {
+      display: none;
+      padding: 100px 20px;
+      height: 100%;
+      color: brown;
+    }
+    #home {
+      background-color: #f8d1b8;
+    }
+    #news {
+      background-color: #d1ac00 ;
+    }
+    #service {
+      background-color: #022423;
+    }
+    #contact {
+      background-color: #095c5c;
+    }
+  </style>
+</head>
+<body>
+  
+    <div class="topnav">
+      <div class="logo left"><a href="#">WorK.</a></div>
+      <div class="center-btn center">
+        <button class="btn_link radius1" onclick="openPage('home', this, '#f8d1b8')" id="active">Home</button>
+        <button class="btn_link" onclick="openPage('news', this, '#d1ac00')">News</button>
+        <button class="btn_link" onclick="openPage('service', this, '#022423')">Service</button>
+        <button class="btn_link radius2" onclick="openPage('contact', this, '#095c5c')">Contact</button>
+      </div>
+      <a href="#" class="split right">Help</a>
+    </div>
+
+    <div class="content" id="home">
+      <h1>Home Content</h1>
+      <p>Welcome to Home</p>
+    </div>
+    <div class="content" id="news">
+      <h1>News Content</h1>
+      <p>Welcome to Home</p>
+    </div>
+    <div class="content" id="service">
+      <h1>Service Content</h1>
+      <p>Welcome to Home</p>
+    </div>
+    <div class="content" id="contact">
+      <h1>Contact Content</h1>
+      <p>Welcome to Home</p>
+    </div>
+
+
+    <script>
+      function openPage(pageName,elmnt,color) {
+        var nav, content, btn_link;
+        content = document.getElementsByClassName("content");
+        for (nav = 0; nav < content.length; nav++){
+          content[nav].style.display = "none";
+        }
+
+        btn_link = document.getElementsByClassName("btn_link");
+        for (nav = 0; nav < btn_link.length; nav++){
+          btn_link[nav].style.backgroundColor = "";
+        }
+        document.getElementById(pageName).style.display = "block";
+        
+        elmnt.style.backgroundColor = color;
+      }
+       
+      document.getElementById("active").click();
+    </script>
+</body>
+</html>
